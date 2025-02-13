@@ -23,7 +23,7 @@ ChouLovePicture.destroy_all
 
 puts "Seeding..."
 image_dir = Rails.root.join('app/assets/images/photos')
-image_files = Dir.glob(File.join(image_dir, '*.{jpg,jpeg,png,gif}'))
+image_files = Dir.glob(File.join(image_dir, '*.{jpg,jpeg,png,gif,heic}'))
 
 image_files.each do |file_path|
   exif = MiniExiftool.new(file_path)
