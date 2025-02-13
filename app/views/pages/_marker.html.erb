@@ -1,1 +1,4 @@
-<%= image_tag picture.file_path, height: 120, alt: "Logo" %>
+<div class="picture" data-controller="picture">
+  <%= image_tag picture.file_path, alt: "text", class: "picture-image" %>
+  <h3><%= picture.name %></h3>
+</div>

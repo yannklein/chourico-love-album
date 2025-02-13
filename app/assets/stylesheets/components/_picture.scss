@@ -1,0 +1,43 @@
+.picture {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  width: fit-content;
+  gap: 16px;
+}
+
+.picture:hover {
+  z-index: 10;
+}
+
+.picture h3 {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 24px;
+  box-shadow: 0 0 10px 10px rgba(62, 62, 81, 0.9);
+  border-radius: 13px;
+  background-color: rgba(62, 62, 81, 0.9);
+  color: white;
+  font-weight: 100;
+  font-style: italic;
+  padding: 0 16px;
+}
+
+.picture:hover h3 {
+  opacity: 1;
+}
+
+.picture-image {
+  border-radius: 16px;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  height: 120px;
+  width: fit-content;
+  filter: saturate(20%);
+  transition: height 0.3s ease, filter 0.3s ease;
+}
+
+.picture:hover .picture-image {
+  height: 240px;
+  filter: saturate(100%);
+}
