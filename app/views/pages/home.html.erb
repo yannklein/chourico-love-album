@@ -1,8 +1,14 @@
-<%= link_to root_path, class: "d-flex text-decoration-none align-items-center font-italic text-primary" do %>
-  <%= image_tag "logo.png", alt: "text", height: "100", class: "m-3" %>
+
+<% if request.user_agent !~ /Mobile/ %>
+<%= link_to root_path, class: "d-flex text-decoration-none align-items-center font-italic text-primary m-3" do %>
+  <%= image_tag "logo.png", alt: "text", height: "100", class: "" %>
   <h1 class="main-title">Chouriço Love Album ❤️</h1>
 <% end %>
 <div style="position: fixed; top:0; left: 0; width: 100vw; height: 100vh; z-index: -1"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<h3 class="position-absolute bottom-0 end-0 m-3" > 🦔 ...more destinations coming soon!</h3>
+<% else %>
+  <h1 class="position-absolute top-50 start-50 translate-middle text-center">Open me on a laptop please 📱👉💻</h1>
+<% end %>
