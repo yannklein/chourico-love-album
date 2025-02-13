@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :pictures
+  resources :chou_love_pictures
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

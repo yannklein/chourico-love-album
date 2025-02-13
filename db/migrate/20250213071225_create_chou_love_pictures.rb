@@ -1,6 +1,6 @@
-class CreatePictures < ActiveRecord::Migration[7.1]
+class CreateChouLovePictures < ActiveRecord::Migration[7.1]
   def change
-    create_table :pictures do |t|
+    create_table :chou_love_pictures do |t|
       t.string :latitude
       t.string :longitude
       t.string :name

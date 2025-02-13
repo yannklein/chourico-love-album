@@ -3,7 +3,7 @@
 require 'mini_exiftool'
 
 puts "Reset Seeds..."
-Picture.destroy_all
+ChouLovePicture.destroy_all
 
 puts "Seeding..."
 image_dir = Rails.root.join('app/assets/images/photos')
@@ -20,7 +20,7 @@ image_files.each do |file_path|
   relative_path = file_path.sub(Rails.root.join('app/assets/images/').to_s, '')
 
 
-  Picture.create!(
+  ChouLovePicture.create!(
     name: File.basename(file_path, '.*'),
     file_path: relative_path, # This is now usable with `image_tag`
     latitude: latitude,

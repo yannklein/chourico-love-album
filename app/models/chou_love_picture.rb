@@ -1,0 +1,2 @@
+class ChouLovePicture < ApplicationRecord
+end
