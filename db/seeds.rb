@@ -1,9 +1,31 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+require 'mini_exiftool'
+
+puts "Reset Seeds..."
+Picture.destroy_all
+
+puts "Seeding..."
+image_dir = Rails.root.join('app/assets/images/photos')
+image_files = Dir.glob(File.join(image_dir, '*.{jpg,jpeg,png,gif}'))
+
+image_files.each do |file_path|
+  exif = MiniExiftool.new(file_path)
+
+  # Extract GPS data if available
+  latitude = exif[:gpslatitude]&.to_s
+  longitude = exif[:gpslongitude]&.to_s
+
+  # Convert the file path to be usable with Rails' `image_tag` helper
+  relative_path = file_path.sub(Rails.root.join('app/assets/images/').to_s, '')
+
+
+  Picture.create!(
+    name: File.basename(file_path, '.*'),
+    file_path: relative_path, # This is now usable with `image_tag`
+    latitude: latitude,
+    longitude: longitude
+  )
+end
+
+puts "Seeded #{image_files.count} pictures!"
