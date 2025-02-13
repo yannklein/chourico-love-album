@@ -1,7 +1,5 @@
 # db/seeds.rb
 
-require 'mini_exiftool'
-
 # Converts "40 deg 36' 13.07\" N" to decimal format
 def dms_to_decimal(dms, direction)
   return nil if dms.nil?
