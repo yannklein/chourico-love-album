@@ -15,17 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_13_071225) do
   enable_extension "plpgsql"
 
   create_table "chou_love_pictures", force: :cascade do |t|
-    t.string "latitude"
-    t.string "longitude"
-    t.string "name"
-    t.string "file_path"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pictures", force: :cascade do |t|
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.string "name"
     t.string "file_path"
     t.datetime "created_at", null: false
